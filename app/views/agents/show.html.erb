@@ -1,0 +1,22 @@
+<p>
+  <b>Name:</b>
+  <%=h @agent.name %>
+</p>
+
+<p>
+  <b>Ip address:</b>
+  <%=h @agent.ip_address %>
+</p>
+
+<p>
+  <b>Mibs:</b>
+  <ul>
+  <% @agent.mibs.each do |mib| %>
+	<li><%= mib %></li>
+  <% end %>
+  </ul>
+</p>
+
+
+<%= link_to 'Edit', edit_agent_path(@agent) %> |
+<%= link_to 'Back', agents_path %>

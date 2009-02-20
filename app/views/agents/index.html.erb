@@ -1,0 +1,22 @@
+<h1>Listing agents</h1>
+
+<table>
+  <tr>
+	<th>Name</th>
+    <th>Ip address</th>
+  </tr>
+
+<% for agent in @agents %>
+  <tr>
+	<td><%=h agent.name %></td>
+    <td><%=h agent.ip_address %></td>
+    <td><%= link_to 'Show', agent %></td>
+    <td><%= link_to 'Edit', edit_agent_path(agent) %></td>
+    <td><%= link_to 'Destroy', agent, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New agent', new_agent_path %>
