@@ -1,0 +1,74 @@
+<div id="interface_<%= interface[0] %>"<%= (is_hidden) ? " style=\"display:none;\"" : nil %>>
+<p>
+	<b><%= interface[1][1][1] %></b><br/>
+	<em>Admin Status: <%= Agent::STATUS[ interface[1][6][1].to_i ] %></em><br/>
+	<em>Operational Status: <%= Agent::STATUS[ interface[1][7][1].to_i ] %></em><br/>
+	<a href="#" style="font-size: 0.8em;font-style:italic;" onclick="Effect.toggle('status_explanation_container_<%= interface[0] %>', 'blind', {duration: 1.0})">What Does This Mean?</a><br/>
+</p>
+
+<div id="status_explanation_container_<%= interface[0] %>" style="display:none;">
+	<div id="status_explanation">
+		<p>
+			<b>Admin Status</b> represents the desired status of the interface.<br/>
+			<b>Operational Status</b> represents the current functioning level of the interface.
+		</p>
+		
+		<ol>
+			<li>If both <b>Admin Status</b> and <b>Operational Status</b> are down, the interface has been turned off by an administrator.</li>
+			<li>If <b>Admin Status</b> is up, while <b>Operational Status</b> is down, this means the interface has failed.</li>
+		</ol>
+		
+		<a href="#" style="font-size: 0.8em;" onclick="Effect.toggle('status_explanation_container_<%= interface[0] %>', 'blind', {duration: 1.0})">Close</a>
+	</div>
+</div>
+
+<table>
+	<tr>
+		<th align="right">Type:</td>
+		<td><%= interface[1][2][1] %></td>
+	</tr><tr>
+		<th align="right">MTU:</td>
+		<td><%= interface[1][3][1] %></td>
+	</tr><tr>
+		<th align="right">Speed:</td>
+		<td><%= interface[1][4][1] %></td>
+	</tr><tr>
+		<th align="right">MAC:</td>
+		<td><%= interface[1][5][1] %></td>
+	</tr>
+</table>
+
+<br/>
+
+<table class="interface_table">
+	<tr>
+		<th></th>
+		<th>Octets</th>
+		<th>UCast Packets</th>
+		<th>Non-UCase Packets</th>
+		<th>Discards</th>
+		<th>Errors</th>
+		<th>Unknown Protocols</th>
+	</tr>
+	
+	<tr>
+		<th>In</th>
+		<td><%= interface[1][9][1] %></td>
+		<td><%= interface[1][10][1] %></td>
+		<td><%= interface[1][11][1] %></td>
+		<td><%= interface[1][12][1] %></td>
+		<td><%= interface[1][13][1] %></td>
+		<td><%= interface[1][14][1] %></td>
+	</tr>
+	
+	<tr>
+		<th>Out</th>
+		<td><%= interface[1][15][1] %></td>
+		<td><%= interface[1][16][1] %></td>
+		<td><%= interface[1][17][1] %></td>
+		<td><%= interface[1][18][1] %></td>
+		<td><%= interface[1][19][1] %></td>
+	</tr>
+	
+</table>
+</div>

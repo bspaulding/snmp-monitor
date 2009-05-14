@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  uptime: MyString
+  oid: MyString
+  agent_id: 1
+
+two:
+  uptime: MyString
+  oid: MyString
+  agent_id: 1

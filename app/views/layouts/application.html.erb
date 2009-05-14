@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>SNMP Monitor</title>
+<%= stylesheet_link_tag 'master', :media => :all %>
+<%= stylesheet_link_tag 'status_bar', :media => :all %>
+<%= javascript_include_tag :all %>
+</head>
+
+<body>
+	<% if controller_name != "dashboard" && action_name != "index" %>
+	<div id="dashboard_link">
+		<%= link_to "<-- Back to Dashboard", url_for(:controller => 'dashboard', :action => 'index') %>
+	</div>
+	<% end %>
+	
+	<% unless controller_name == "login" %>
+	<div id="logout_link">
+		<%= link_to "Logout", url_for(:controller => 'login', :action => 'logout') %>
+	</div>
+	<% end %>
+	
+	<div id="status_bar" class="<%= system_status %>">
+		<%= Agent.down.size %> Agents Reporting Down.
+	</div>
+	
+	<div id="wrapper">
+		<%= image_tag "logo_#{system_status}.jpg" %>
+		<div id="content">
+			<% if flash[:error] %>
+				<div id="flash_error"><%= flash[:error] %></div>
+			<% end %>
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

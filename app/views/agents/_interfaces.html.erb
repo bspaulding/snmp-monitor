@@ -1,0 +1,10 @@
+<b>Interface:</b> <select name="current_interface" id="current_interface" onchange="toggle_interface()">
+<%= interfaces.collect {|interface| "<option value=\"#{interface[0]}\">#{interface[0]}</option>" } %>
+</select>
+
+<div id="interfaces">
+<% interfaces.each_with_index do |interface, index| %>
+<% (index == 0) ? is_hidden = false : is_hidden = true %>
+<%= render :partial => 'interface', :object => interface, :locals => {:is_hidden => is_hidden} %>
+<% end %>
+</div>

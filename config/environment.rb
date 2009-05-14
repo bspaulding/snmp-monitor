@@ -60,6 +60,11 @@ Rails::Initializer.run do |config|
     :secret      => 'f349abdcd43670ee4725c0716b8534803001c16d5a9565779058467afec989d0ba9f2617961e4098ce3dd163b8ce90ac7fe7a6d6420059bf1a8f6c76e0b236aa'
   }
 
+	config.action_mailer.smtp_settings = {	:address => "brad.spaulding@gmail.com",
+																					:user_name => "brad.spaulding@gmail.com",
+																					:password => "starwars"
+																			 }
+
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
   # (create the session table with "rake db:sessions:create")
@@ -74,3 +79,8 @@ Rails::Initializer.run do |config|
   # Please note that observers generated using script/generate observer need to have an _observer suffix
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 end
+
+require "#{RAILS_ROOT}/lib/snmp_extensions.rb"
+
+# Launch Trap Monitor
+system "#{RAILS_ROOT}/lib/daemons/trap_monitor_ctl start RAILS_ENV=#{RAILS_ENV}"

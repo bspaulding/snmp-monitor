@@ -1,0 +1,46 @@
+#status_bar {
+	font-weight: bold;
+	padding-top: 5px;
+	font-size: 0.7em;
+	text-align: center;
+	height: 20px;
+	z-index: 50;
+	right: 0px;
+	left: 0px;
+	top: 100px;
+	position: absolute;
+	width: 100%;
+}
+
+#status_bar.active {
+	color: white;
+	border-bottom-color: #56c028;
+	border-top-color: #54c028;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-bottom-width: 2px;
+	border-top-width: 2px;
+	background-color: #6ef633;
+}
+
+#status_bar.inactive {
+	color: white;
+	border-bottom-color: #b71d17;
+	border-top-color: #b71c18;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-bottom-width: 2px;
+	border-top-width: 2px;
+	background-color: #f60d0d;
+}
+
+#status_bar.testing {
+	color: #313131;
+	border-bottom-color: #dbd633;
+	border-top-color: #dbd634;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-bottom-width: 2px;
+	border-top-width: 2px;
+	background-color: #f6f010;
+}

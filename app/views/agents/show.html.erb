@@ -1,22 +1,29 @@
-<p>
-  <b>Name:</b>
-  <%=h @agent.name %>
-</p>
+<h1><%=h @agent.name %></h1>
 
 <p>
-  <b>Ip address:</b>
-  <%=h @agent.ip_address %>
+	<em>IP Address:</em> <%=h @agent.ip_address %>
 </p>
+
+<div id="interfaces_view">
+<%= image_tag 'spinner.gif' %> <em>Loading Interfaces...</em>
+</div>
+
+<script type="text/javascript" language="JavaScript">
+function toggle_interface() {
+	current_interface_name = document.getElementById("current_interface").value
+	interfaces = document.getElementById('interfaces').childNodes
+	for (var i = 0; i < interfaces.length; i++) {
+		if (interfaces[i].style) {
+			interfaces[i].style.display = "none";
+		}
+	}
+	document.getElementById("interface_" + current_interface_name).style.display = "";
+}
+
+<%= remote_function :url => {:action => 'load_interfaces', :id => @agent.id} %>
+</script>
 
 <p>
-  <b>Mibs:</b>
-  <ul>
-  <% @agent.mibs.each do |mib| %>
-	<li><%= mib %></li>
-  <% end %>
-  </ul>
+	<%= link_to 'Edit Agent', edit_agent_url(@agent) %> | 
+	<%= link_to 'Delete Agent', url_for(:controller => 'agents', :action => 'destroy', :id => @agent.id), :method => 'delete', :confirm => "Are you sure you want permanently to delete this agent?" %>
 </p>
-
-
-<%= link_to 'Edit', edit_agent_path(@agent) %> |
-<%= link_to 'Back', agents_path %>

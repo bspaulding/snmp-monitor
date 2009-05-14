@@ -1,29 +1,37 @@
+# = AgentsController
+#
+# Author: Bradley J. Spaulding
+#
+# === Purpose
+# This is the REST controller for the Agents resource,
+# handing all routes under /agents.
 class AgentsController < ApplicationController
-  def walk_mib
-    
-  end
-
+	before_filter :authenticate
+	  
   # GET /agents
   # GET /agents.xml
   def index
-    @agents = Agent.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @agents }
-    end
+    redirect_to :controller => 'dashboard'
   end
 
   # GET /agents/1
   # GET /agents/1.xml
   def show
     @agent = Agent.find(params[:id])
-
+		
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @agent }
     end
   end
+
+	# AJAX /agents/load_interfaces
+	def load_interfaces
+		@interfaces = Agent.find(params[:id]).interfaces
+		render :update do |page|
+			page.replace_html 'interfaces_view', :partial => 'interfaces', :object => @interfaces
+		end
+	end
 
   # GET /agents/new
   # GET /agents/new.xml
@@ -82,7 +90,7 @@ class AgentsController < ApplicationController
     @agent.destroy
 
     respond_to do |format|
-      format.html { redirect_to(agents_url) }
+      format.html { redirect_to(:controller => 'dashboard') }
       format.xml  { head :ok }
     end
   end

@@ -1,0 +1,14 @@
+<table cellspacing="0" width="800px">
+	<tr>
+		<th>System Name</th>
+		<th>Status</th>
+		<th>Uptime</th>
+	</tr>
+	<% unless agents_table.empty? %>
+		<%= render :partial => 'agents_table_row', :collection => agents_table %>
+	<% else %>
+	<tr>
+		<td><em>0 Agents</em></td>
+	</tr>
+	<% end %>
+</table>

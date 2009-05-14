@@ -1,0 +1,5 @@
+<tr class="<%= (agents_table_row_counter % 2 == 0) ? 'light' : 'dark' %>" onclick="document.location.href='<%= url_for(agents_table_row) %>'">
+	<td width="600px" class="<%= agents_table_row.status.downcase %>"><%= agents_table_row.sys_name %></td>
+	<td width="100px" class="<%= agents_table_row.status.downcase %>"><%= agents_table_row.status %></td>
+	<td width="100px" class="<%= agents_table_row.status.downcase %>"><%= agents_table_row.sys_uptime %></td>
+</tr>
