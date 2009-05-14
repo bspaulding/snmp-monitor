@@ -1,3 +1,11 @@
+# = SNMP Module Extensions
+#
+# Author: Bradley J. Spaulding
+#
+# === Purpose
+# Extend the functionality of the SNMP Module.
+# Currently, the only functionality added was the cleaner output of
+# MAC Addresses.
 module SNMP
   class OctetString
     def to_mac

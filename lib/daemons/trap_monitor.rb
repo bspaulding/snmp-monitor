@@ -1,5 +1,14 @@
 #!/usr/bin/env ruby
 
+# = TrapMonitor
+#
+# Author: Bradley J. Spaulding
+#
+# === Purpose
+# This daemon is run on application startup.
+# This daemon launches a TrapListener which creates Trap instances
+# as they are received by the trap listener.
+
 # You might want to change this
 ENV["RAILS_ENV"] ||= "production"
 
