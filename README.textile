@@ -2,4 +2,12 @@ h1. SNMP Monitor
 
 SNMP Monitor is a network monitoring application that uses SNMP. It is a web application built with Ruby on Rails. SNMP Monitor was designed and implemented by Bradley J. Spaulding as a requirement for a Computer Networking (CPS372) course at Gordon College.
 
-*TODO: Explain basic functionality and give short tutorial.*
+*Usage*
+
+Start up the server by running <code>script/server</code> from the source's root directory. 
+
+_Alternatively, you can use your own rails server environment. Phusion Passenger with nginx or Apache is recommended._
+
+*Documentation*
+
+The source is documented inline. To generate rDoc HTML documentation, run <code>rake doc:app</code> from the source's root directory.
