@@ -1,11 +1,20 @@
+# = Agent
+#
+# Author: Bradley J. Spaulding
+#
+# === Purpose
+# Model class encapsulating a particular SNMP agent that is to be tracked.
+# All SNMP specific logic, in terms of communicating with the agent via SNMP,
+# should be encapsulated within this Model class.
+# 
+# This class also stores useful constants and code conversions, like the OID_NAMES
+# conversion table (as a Hash of {OID => NAME}).
+
 require 'snmp'
 
 class Agent < ActiveRecord::Base  
-	extend ActiveSupport::Memoizable
-	
-  # Associations
-  has_and_belongs_to_many :mibs
-  has_many :data_records
+	# Allows for :status to be memoized the first time during each request.
+	extend ActiveSupport::Memoizable 
   
   # Validations
   validates_presence_of :ip_address, :community

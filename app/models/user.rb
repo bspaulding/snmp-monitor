@@ -1,3 +1,11 @@
+# = User
+#
+# Author: Bradley J. Spaulding
+#
+# === Purpose
+# Encapsulates a User of the system, authenticating them via Gordon's ActiveDirectory.
+# TODO: This authentication method should be changed in the future.
+# 			The schema for this model already includes storing a password_hash and password_salt.
 require 'net/ldap'
 class User < ActiveRecord::Base
 	validates_uniqueness_of :email

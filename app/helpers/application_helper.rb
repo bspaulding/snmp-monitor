@@ -1,3 +1,8 @@
+# = ApplicationHelper
+#
+# Author: Bradley J. Spaulding
+#
+# === Purpose
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   extend ActiveSupport::Memoizable
